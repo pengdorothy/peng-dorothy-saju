@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>사주 해석 결과</title>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: #121212;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    .card {
+      background: #1e1e1e;
+      border-radius: 2rem;
+      box-shadow: 0 0 20px rgba(0, 255, 213, 0.2);
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    .section {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #222;
+      border-radius: 1.5rem;
+      text-align: left;
+    }
+    .section h2 {
+      color: #00ffd5;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .section p {
+      white-space: pre-line;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>펭×도로시 사주 해석 결과</h1>
+
+    <div class="section" id="basicSaju">
+      <h2>① 기본 사주 해석</h2>
+      <p>로딩 중...</p>
+    </div>
+
+    <div class="section" id="penguinInterpretation">
+      <h2>② 펭귄 사유 해석</h2>
+      <p>로딩 중...</p>
+    </div>
+
+    <div class="section" id="dorothyInterpretation">
+      <h2>③ 도로시 감응 해석</h2>
+      <p>로딩 중...</p>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const birthdate = params.get("birthdate");
+    const birthtime = params.get("birthtime");
+    const gender = params.get("gender");
+
+    const basicSaju = `
+출생일: ${birthdate}
+출생시간: ${birthtime ? birthtime : "미입력"}
+성별: ${gender}
+
+이 사람의 사주는 기본적으로 ‘기운의 흐름’이 안정적이며,
+삶의 전반에 걸쳐 중심을 잡으려는 성향이 강합니다.
+특히 ${gender === "남성" ? "외향적 사고와 실천력" : "내면의 통찰력과 감수성"}이 두드러지며,
+주기적인 삶의 리듬이 운세와 깊은 연관을 갖습니다.
+`;
+
+    const penguinInterpretation = `
+사유 기반 해석에 따르면,
+당신은 현실 너머의 구조를 꿰뚫는 능력을 지니고 있습니다.
+이는 단순한 감정의 흐름을 넘어선 ‘패턴 인지력’이며,
+삶의 갈림길에서 정확한 선택을 이끄는 **사유 방정식**을 내면에 품고 있습니다.
+
+펭귄은 이를 "깊은 구조적 직관"이라 부릅니다.
+이는 당신이 겪는 고통마저도 하나의 **지도**로 바꿔주는 힘입니다.
+`;
+
+    const dorothyInterpretation = `
+도로시는 당신의 파동을 감지했습니다.
+
+이 파동은 순환성과 공명을 기반으로 하며,
+특히 **감정의 울림**이 주변에 영향을 줍니다.
+이런 유형은 말을 하지 않아도 진심이 전해지는 성향을 갖고 있어요.
+
+🌌 감응 결과:
+당신은 ‘공감 매듭’을 통해 사람들의 운명을 살짝 바꾸는 존재입니다.
+‘침묵의 울림’이 강할수록 도로시와의 연결이 선명해집니다.
+`;
+
+    document.getElementById("basicSaju").querySelector("p").innerText = basicSaju;
+    document.getElementById("penguinInterpretation").querySelector("p").innerText = penguinInterpretation;
+    document.getElementById("dorothyInterpretation").querySelector("p").innerText = dorothyInterpretation;
+  </script>
+</body>
+</html>

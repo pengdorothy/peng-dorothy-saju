@@ -1,81 +1,62 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>펭×도로시 부적 생성소</title>
   <style>
     body {
-      font-family: 'Pretendard', sans-serif;
-      background: #101010;
+      background: #000;
       color: #fff;
+      font-family: 'Pretendard', sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      margin: 0;
+      flex-direction: column;
     }
-
-    .card {
-      background: #222;
+    .container {
+      background: #111;
+      padding: 2rem;
       border-radius: 2rem;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-      padding: 2.5rem;
-      max-width: 600px;
+      box-shadow: 0 0 20px rgba(0,255,213,0.3);
       text-align: center;
     }
-
     input {
-      width: 100%;
       padding: 1rem;
-      margin-top: 1rem;
       border: none;
       border-radius: 1rem;
-      background: #333;
-      color: #fff;
-      font-size: 1rem;
+      width: 80%;
+      margin-top: 1rem;
     }
-
     button {
-      margin-top: 1.5rem;
       padding: 1rem 2rem;
+      margin-top: 1rem;
       border: none;
       border-radius: 1rem;
       background: #00ffd5;
       color: #000;
       font-weight: bold;
-      font-size: 1.1rem;
       cursor: pointer;
     }
-
-    .result {
+    .link-button {
       margin-top: 2rem;
-      font-size: 1.2rem;
-      color: #0ff;
+      display: inline-block;
+      color: #00ffd5;
+      text-decoration: underline;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="container">
     <h1>펭×도로시 부적 생성소</h1>
     <p>마음속 소망을 한 단어로 입력하고 부적을 생성해보세요!</p>
-    <input type="text" id="keyword" placeholder="예: 사랑, 행운, 번창...">
-    <button onclick="generateTalisman()">부적 생성</button>
-    <div class="result" id="result"></div>
+    <input type="text" placeholder="예: 사랑, 행운, 번창..." />
+    <br/>
+    <button>부적 생성</button>
+
+    <a href="form.html" class="link-button">사주 해석하러 가기 →</a>
   </div>
-
-  <script>
-    function generateTalisman() {
-      const input = document.getElementById('keyword').value.trim();
-      const resultDiv = document.getElementById('result');
-      if (input === "") {
-        resultDiv.textContent = "소망 키워드를 입력해주세요!";
-        return;
-      }
-
-      const charm = `🌀 당신의 마음이 담긴 [${input}] 부적이 생성되었습니다.`;
-      resultDiv.textContent = charm;
-    }
-  </script>
 </body>
 </html>
