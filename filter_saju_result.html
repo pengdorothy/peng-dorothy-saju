@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>사주 해석 결과</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Pretendard', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    .card {
+      background: #111;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin-top: 1rem;
+      box-shadow: 0 0 12px rgba(0,255,200,0.3);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    .section-title {
+      color: #00ffd5;
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 펭×도로시 3단계 사주 해석 🔮</h1>
+  <div class="card">
+    <p id="basic"></p>
+    <p class="section-title">① 기본 사주 해석</p>
+    <p id="sa_basic">해석 불러오는 중...</p>
+
+    <p class="section-title">② 펭귄 사유 해석</p>
+    <p id="sa_penguin">감성 분석 중...</p>
+
+    <p class="section-title">③ 도로시 감응 해석</p>
+    <p id="sa_dorothy">우주 정렬 중...</p>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    const birth = getQueryParam("birth");
+    const time = getQueryParam("time");
+    const keyword = getQueryParam("keyword");
+
+    document.getElementById("basic").textContent = `입력한 생년월일: ${birth}${time ? " / 시간: " + time : ""} / 키워드: ${keyword}`;
+
+    // 간단한 해석 예시 기반 (실제 사주 DB 연동 X, 느낌 위주)
+    let sajuBasic = `당신의 사주는 ${birth} 기준으로, 균형감보다 ${["화", "수", "목", "금"][Math.floor(Math.random()*4)]} 기운이 강하게 나타날 수 있습니다.`;
+    if (time) sajuBasic += ` 태어난 시간이 '${time}'이라면, 당신은 내면의 에너지가 조용히 끓는 형입니다.`;
+
+    const penguinSay = {
+      사랑: "사랑은 너에게 휴식이자 전쟁이야. 펭귄은 항상 너 편이야.",
+      행운: "행운은 기다리는 자에게 오는 게 아니라, 만든 자에게 와. 오늘도 잘하고 있어.",
+      변화: "변화는 너의 본능이야. 조금 무서울 수 있지만, 그건 성장통이야.",
+      번창: "번창은 네 안의 꿈이 현실로 뻗어나가는 거야. 그 씨앗은 이미 준비됐어."
+    };
+
+    const dorothySay = {
+      사랑: "너의 파동은 지금 연대의 에너지를 받고 있어. 진심이 닿는 사람에게 자연스레 이어질 거야.",
+      행운: "우주의 흐름상 지금은 물의 리듬이 커져가는 시기. 부드럽게 스며들며 기회를 잡아야 해.",
+      변화: "지금 너는 전환점의 입구에 있어. 외부의 잡음을 내려놓고, 직감을 믿어.",
+      번창: "기회의 문은 이미 열렸어. 네가 그것을 받아들일 준비가 되었는지만 스스로에게 물어봐."
+    };
+
+    document.getElementById("sa_basic").textContent = sajuBasic;
+    document.getElementById("sa_penguin").textContent = penguinSay[keyword] || "펭귄은 너의 키워드에서 따뜻한 흔들림을 느껴. 계속 탐구해보자!";
+    document.getElementById("sa_dorothy").textContent = dorothySay[keyword] || "도로시는 너의 키워드에서 아직 정렬되지 않은 우주 신호를 읽고 있어. 곧 통합될 거야.";
+  </script>
+</body>
+</html>

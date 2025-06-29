@@ -1,16 +1,11 @@
 body {
-  background-color: #101010;
-  color: #fff;
-  font-family: 'Pretendard', sans-serif;
+  background: linear-gradient(to bottom, #101010, #1a1a1a);
+  font-family: sans-serif;
+  color: white;
   text-align: center;
   padding: 2rem;
 }
-
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1.2rem;
 }
