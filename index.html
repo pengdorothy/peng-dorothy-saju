@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>펭×도로시 부적 생성소</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Pretendard', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    .card {
+      background: #222;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    input {
+      width: 80%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      border-radius: 1rem;
+      border: none;
+      background: #333;
+      color: white;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      background: #00ffd5;
+      border: none;
+      border-radius: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h1>펭×도로시 부적 생성소</h1>
-  <p>진동값을 입력하고 부적을 생성해보세요!</p>
+  <div class="card">
+    <h1>펭×도로시 부적 생성소</h1>
+    <p>진동값을 입력하고 부적을 생성해보세요!</p>
+    <input type="text" id="inputValue" placeholder="진동값 입력..." />
+    <button onclick="generate()">부적 생성</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function generate() {
+      const input = document.getElementById('inputValue').value;
+      const result = document.getElementById('result');
+      if (input.trim()) {
+        result.innerText = `✨ [${input}]의 진동이 깃든 부적이 생성되었습니다.`;
+      } else {
+        result.innerText = "진동값을 입력해주세요!";
+      }
+    }
+  </script>
 </body>
 </html>
