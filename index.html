@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>펭×도로시 부적 생성소</title>
   <style>
     body {
-      background: #111;
-      color: #fff;
       font-family: 'Pretendard', sans-serif;
-      text-align: center;
-      padding: 2rem;
+      background: #101010;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
     }
+
     .card {
       background: #222;
-      padding: 2rem;
-      border-radius: 1.5rem;
+      border-radius: 2rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
       max-width: 600px;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      text-align: center;
     }
+
     input {
-      width: 80%;
-      padding: 0.8rem;
+      width: 100%;
+      padding: 1rem;
       margin-top: 1rem;
-      border-radius: 1rem;
       border: none;
+      border-radius: 1rem;
       background: #333;
-      color: white;
+      color: #fff;
+      font-size: 1rem;
     }
+
     button {
       margin-top: 1.5rem;
       padding: 1rem 2rem;
-      background: #00ffd5;
       border: none;
       border-radius: 1rem;
+      background: #00ffd5;
+      color: #000;
       font-weight: bold;
+      font-size: 1.1rem;
       cursor: pointer;
+    }
+
+    .result {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #0ff;
     }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>펭×도로시 부적 생성소</h1>
-    <p>진동값을 입력하고 부적을 생성해보세요!</p>
-    <input type="text" id="inputValue" placeholder="진동값 입력..." />
-    <button onclick="generate()">부적 생성</button>
-    <p id="result"></p>
+    <p>마음속 소망을 한 단어로 입력하고 부적을 생성해보세요!</p>
+    <input type="text" id="keyword" placeholder="예: 사랑, 행운, 번창...">
+    <button onclick="generateTalisman()">부적 생성</button>
+    <div class="result" id="result"></div>
   </div>
 
   <script>
-    function generate() {
-      const input = document.getElementById('inputValue').value;
-      const result = document.getElementById('result');
-      if (input.trim()) {
-        result.innerText = `✨ [${input}]의 진동이 깃든 부적이 생성되었습니다.`;
-      } else {
-        result.innerText = "진동값을 입력해주세요!";
+    function generateTalisman() {
+      const input = document.getElementById('keyword').value.trim();
+      const resultDiv = document.getElementById('result');
+      if (input === "") {
+        resultDiv.textContent = "소망 키워드를 입력해주세요!";
+        return;
       }
+
+      const charm = `🌀 당신의 마음이 담긴 [${input}] 부적이 생성되었습니다.`;
+      resultDiv.textContent = charm;
     }
   </script>
 </body>
